@@ -1,21 +1,26 @@
 # To-Do List RESTful API
 
-## Требования
+## Requirements
+Java 11 or higher
 
-- Java 11 или выше
-- Maven
+Maven
 
-## Запуск приложения
+Running the Application
+Clone the repository.
 
-1. Склонируйте репозиторий.
-2. Выполните команду `mvn clean install` для установки зависимостей.
-3. Выполните команду `mvn spring-boot:run` для запуска приложения.
-4. Для подключения к БД зайдите в application.properties и поменяйте базу которую будете использовать и введите свой лог и пароль 
+Run the command mvn clean install to install dependencies.
 
-## Использование API
+Run the command mvn spring-boot:run to start the application.
 
-- Получение списка всех задач: `GET /api/tasks`
-- Получение задачи по ID: `GET /api/tasks/{id}`
-- Добавление новой задачи: `POST /api/tasks`
-- Обновление задачи: `PUT /api/tasks/{id}`
-- Удаление задачи: `DELETE /api/tasks/{id}`
+To connect to the database, open application.properties, set the database you want to use, and enter your username and password.
+
+Using the API
+Get a list of all tasks: GET /api/tasks
+
+Get a task by ID: GET /api/tasks/{id}
+
+Add a new task: POST /api/tasks
+
+Update a task: PUT /api/tasks/{id}
+
+Delete a task: DELETE /api/tasks/{id}
