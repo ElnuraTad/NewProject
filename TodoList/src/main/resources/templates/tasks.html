@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Manager</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<h1>Create a Task</h1>
+
+<form th:action="@{/tasks/create}" th:object="${task}" method="post">
+    <input type="text" th:field="*{title}" placeholder="Title" required><br>
+    <input type="text" th:field="*{description}" placeholder="Description" required><br>
+
+    <label>
+        <input type="checkbox" th:field="*{completed}"> Completed
+    </label><br><br>
+
+    <button type="submit">Create</button>
+</form>
+
+<h2>Tasks List</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Completed</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="task : ${tasks}">
+        <td th:text="${task.id}"></td>
+        <td th:text="${task.title}"></td>
+        <td th:text="${task.description}"></td>
+        <td th:text="${task.completed} ? '✅' : '❌'"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Tasks</title>-->
+<!--    <link rel="stylesheet" th:href="@{/style.css}">-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Create a Task</h1>-->
+
+<!--<form th:action="@{/tasks/create}" th:object="${task}" method="post">-->
+<!--    <input type="text" th:field="*{title}" placeholder="Title" required><br>-->
+<!--    <input type="text" th:field="*{description}" placeholder="Description"><br>-->
+
+<!--    <label>-->
+<!--        <input type="checkbox" th:field="*{completed}"> Completed-->
+<!--    </label><br><br>-->
+
+<!--    <button type="submit">Create</button>-->
+<!--</form>-->
+
+<!--<h2>Tasks List</h2>-->
+
+<!--<table>-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>ID</th>-->
+<!--        <th>Title</th>-->
+<!--        <th>Description</th>-->
+<!--        <th>Completed</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:each="task : ${tasks}">-->
+<!--        <td th:text="${task.id}"></td>-->
+<!--        <td th:text="${task.title}"></td>-->
+<!--        <td th:text="${task.description}"></td>-->
+<!--        <td th:text="${task.completed} ? 'Yes' : 'No'"></td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--</body>-->
+<!--</html>-->
